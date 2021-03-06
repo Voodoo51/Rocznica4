@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4400797139072282115}
-  - component: {fileID: 4400797139072282116}
+  - component: {fileID: 7294906145239453070}
   - component: {fileID: 4400797139072282112}
   - component: {fileID: 4400797139072282117}
   - component: {fileID: 7009224840472336724}
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4400797139072282116
+--- !u!114 &7294906145239453070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +43,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4400797139072282127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f249de0b45548b4cb874e0968a7a03f, type: 3}
+  m_Script: {fileID: 11500000, guid: af8244fd3909f8b409b0a955d874e931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 500
+  speed: 15
+  damage: 0
   effectManager: {fileID: 8687439659350854403, guid: 1da7b4763e8039c4f90e86cab20830cc,
     type: 3}
-  speed: 15
-  force: 500
-  damage: 0
-  destroytag: 
 --- !u!50 &4400797139072282112
 Rigidbody2D:
   serializedVersion: 4

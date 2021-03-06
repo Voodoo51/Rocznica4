@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform player;
+    public static Transform player;
     public Gun enemyGun;
 
     public  SpriteRenderer sprite;
@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
         randomTime = Random.Range(5,8);
         enemyGun.enabled = false;
         StartCoroutine(Walk());
+        StartCoroutine(DistanceCheck());
     }
 
     // Update is called once per frame
@@ -57,7 +58,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                     sprite.flipX = false;
+                    sprite.flipX = false;
                     gunSprite.transform.localEulerAngles = new Vector3(0,0,90);
                 }
                 enemyGun.transform.rotation = Quaternion.Lerp(enemyGun.transform.rotation, Quaternion.Euler(Vector3.forward * angle), Time.deltaTime * lerpSpeed);
@@ -69,12 +70,7 @@ public class Enemy : MonoBehaviour
 
             
         }
-        if(Vector3.Distance(transform.position,player.position) < 2)
-        {
-           states = States.fight;
-           enemyGun.enabled = true;
-           StopAllCoroutines();
-        }
+        
     }
 
     void OnCollisionEnter2D(Collision2D cd)
@@ -107,6 +103,21 @@ public class Enemy : MonoBehaviour
         }
         
     }
+
+
+    IEnumerator DistanceCheck()
+    {
+        while(true){
+            if(Vector3.Distance(transform.position,player.position) < 2)
+            {
+                states = States.fight;
+                enemyGun.enabled = true;
+                StopAllCoroutines();
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
     public enum States
     {
         idle,

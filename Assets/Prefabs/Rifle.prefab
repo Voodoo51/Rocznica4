@@ -97,15 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285333fad081a8f45bdeff3030e193ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4400797139072282116, guid: 409b6fcc56096b64f8e2ff72f31f194e, type: 3}
+  bullet: {fileID: 7294906145239453070, guid: 409b6fcc56096b64f8e2ff72f31f194e, type: 3}
   barrel: {fileID: 6887885674842195096}
   cooldownLength: 0.1
   cooldown: 0
-  rotationOffset: 0
   ID: 2
   offset: 7
   damage: 2
-  destroytag: 
 --- !u!1 &6887885675748102429
 GameObject:
   m_ObjectHideFlags: 0

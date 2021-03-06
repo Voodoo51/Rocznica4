@@ -17,9 +17,13 @@ public class Chest : MonoBehaviour
     bool isOpen;
     bool hasItem;
 
+    int randomItem;
     GameObject player;
     Look playerGun;
     Inventory inventory;
+    public ItemPicked notification;
+    public RectTransform whereN;
+    public Notification notifications;
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -27,13 +31,21 @@ public class Chest : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRendererSelf = transform.GetChild(1).GetComponent<SpriteRenderer>();
         inventory = FindObjectOfType<Inventory>();
-        int weaponOrItem = Random.Range(0,10);
-        whatWeapon = Random.Range(0,weapons.Length);
-        
+        notifications = FindObjectOfType<Notification>();
+        hasItem = 3 < Random.Range(0,10);
+        if(hasItem)
+        {
+            randomItem = Random.Range(0,items.Length);
+        }
+        else
+        {
+            whatWeapon = Random.Range(0,weapons.Length);
+        }
     }
 
     void Update()
-    {
+    {   
+        print(randomItem);
         Rect rect = new Rect(transform.position.x, transform.position.y, 1, 1);
         rect.center = transform.position;
         canOpen = rect.Contains(player.transform.position);
@@ -45,35 +57,70 @@ public class Chest : MonoBehaviour
             {
                 if(canOpen)
                 {
-                
-                    isOpen=true;
-                    spriteRenderer.sprite = weapons[whatWeapon].GetComponentInChildren<SpriteRenderer>().sprite;
-                    spriteRendererSelf.sprite = chestOpened;
+                    
+                    if(hasItem)
+                    {
+                        
+                        isOpen=true;
+                        spriteRenderer.sprite = items[randomItem].GetComponent<SpriteRenderer>().sprite;
+                        spriteRendererSelf.sprite = chestOpened;
+                    }
+                    else
+                    {
+                        isOpen=true;
+                        spriteRenderer.sprite = weapons[whatWeapon].GetComponentInChildren<SpriteRenderer>().sprite;
+                        spriteRendererSelf.sprite = chestOpened;
+                        
+                    }
+                    
                 }
             }
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.F))
-            {
-                if(canOpen)
+        if(Input.GetKeyDown(KeyCode.F))
+            { if(canOpen)
                 {
-                
-                if(inventory.isSlotTaken)
-                {
-                    isSlotTaken();
-                }
-                else
-                {
-                    Sprite sprite = spriteRenderer.sprite;
-                    inventory.slots[1].sprite =  sprite;     
-                    inventory.weapons[1] = Instantiate(weapons[whatWeapon],playerGun.gun.position,playerGun.gun.rotation);
-                    inventory.weapons[1].transform.parent = player.transform; 
-                    inventory.weapons[1].SetActive(false);
-                    inventory.isSlotTaken = true;
-                    Destroy(spriteRenderer);
-                    Destroy(gameObject.GetComponent<Chest>());
-                }
+                    if(hasItem)
+                        {
+                            
+                            if(EffectManager.list.ContainsKey(items[randomItem].GetComponent<Effect>()))
+                            {
+                                EffectManager.list[items[randomItem].GetComponent<Effect>()] += 1;
+                            }
+                            else
+                            {
+                                EffectManager.list.Add(items[randomItem].GetComponent<Effect>(),1);
+                            }
+
+                            ItemPicked notificationI = Instantiate(notification,notification.transform.position,Quaternion.identity);
+                            notificationI.title.text = items[randomItem].GetComponent<Effect>().name;
+                            notificationI.description.text = items[randomItem].GetComponent<Effect>().description;
+                            notificationI.image.sprite = spriteRenderer.sprite;
+                            notifications.StartCoroutine(notifications.Show(notificationI));
+                            Destroy(spriteRenderer);
+                            Destroy(gameObject.GetComponent<Chest>());
+                            
+                        }
+                    else
+                        {
+                   
+                        if(inventory.isSlotTaken)
+                            {
+                                isSlotTaken();
+                            }
+                        else
+                            {
+                                Sprite sprite = spriteRenderer.sprite;
+                                inventory.slots[1].sprite =  sprite;     
+                                inventory.weapons[1] = Instantiate(weapons[whatWeapon],playerGun.gun.position,playerGun.gun.rotation);
+                                inventory.weapons[1].transform.parent = player.transform; 
+                                inventory.weapons[1].SetActive(false);
+                                inventory.isSlotTaken = true;
+                                Destroy(spriteRenderer);
+                                Destroy(gameObject.GetComponent<Chest>());
+                            }
+                        }
                 }
                 
             }
@@ -116,7 +163,7 @@ public class Chest : MonoBehaviour
         rect.center = transform.position;
         DrawRect(rect);
     }
-
+    
     void DrawRect(Rect rect)
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));

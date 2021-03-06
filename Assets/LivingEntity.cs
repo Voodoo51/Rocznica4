@@ -61,10 +61,10 @@ public class LivingEntity : MonoBehaviour
 
     public void TakeDamage(GameObject c2d)
     {
-            color = Color.red;
-            health -= c2d.GetComponent<Bullet>().damage;
-            Vector2 dir = transform.position - target.position; 
-            rb.AddForce(dir * c2d.GetComponent<Bullet>().force * Time.fixedDeltaTime,ForceMode2D.Impulse); 
+        color = Color.red;
+        health -= c2d.GetComponent<Bullet>().damage;
+        Vector2 dir = transform.position - target.position; 
+        rb.AddForce(dir * c2d.GetComponent<Bullet>().force * Time.fixedDeltaTime,ForceMode2D.Impulse); 
             
     }
 }

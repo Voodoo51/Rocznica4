@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc45ebdf5d78bd5439c7d999bcc3b6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   health: 100
   tagName: bulletE
 --- !u!1001 &8260458783203383828
@@ -194,7 +195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4400797139072282116, guid: 409b6fcc56096b64f8e2ff72f31f194e,
+      objectReference: {fileID: 7294906145239453070, guid: 409b6fcc56096b64f8e2ff72f31f194e,
         type: 3}
     - target: {fileID: 652231973105080250, guid: 35ffa84bf40815d4ba622e0a42d74738,
         type: 3}

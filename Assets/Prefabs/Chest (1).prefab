@@ -98,8 +98,15 @@ MonoBehaviour:
   - {fileID: 652231973105080250, guid: 35ffa84bf40815d4ba622e0a42d74738, type: 3}
   - {fileID: 2816100956565563238, guid: da95ef18ebb72674abfaceed3ff35439, type: 3}
   - {fileID: 6887885675215503185, guid: 8374e79e6624d8049ae7a67677d028f9, type: 3}
-  items: []
+  items:
+  - {fileID: 86918249961440117, guid: f9f34f31e1ec6c142a51c56ba2df754f, type: 3}
+  - {fileID: 6919339412914324756, guid: c913a7ce479e1894b85ebb7d73cce81b, type: 3}
+  - {fileID: 8019465496973849817, guid: c82ed50e661bb3e4cb4bcf7b1bc34bd2, type: 3}
   chestOpened: {fileID: 21300000, guid: e5fdf6e452b612c4ead5411337e45375, type: 3}
+  notification: {fileID: 5063099029242984371, guid: affb9f7db233bf74486065e470a6e6fc,
+    type: 3}
+  whereN: {fileID: 2886692577436130435, guid: d9e5091516ff19842986bcd42fe188b1, type: 3}
+  notifications: {fileID: 0}
 --- !u!1 &2457600927961630654
 GameObject:
   m_ObjectHideFlags: 0

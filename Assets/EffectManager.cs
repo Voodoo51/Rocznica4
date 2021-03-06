@@ -19,7 +19,8 @@ public class EffectManager : MonoBehaviour
    void Awake()
    {
        //inv = new KeyValuePair<Effect,int>(efekt,1);
-       list.Add(efekt,1);
+      // list.Add(efekt,1);
+      print(list);
    }
 
     public void Check(Collider2D c2d,GameObject bullet)
