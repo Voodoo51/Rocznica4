@@ -4,3 +4,6 @@ CO MUSI BYC:
 co mozna dodac:
 	wybor postaci,
 	wiecej itemow, bossow, broni, poziomowy, przeciwnikow.
+
+
+test
