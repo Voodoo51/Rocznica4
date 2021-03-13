@@ -1,0 +1,9 @@
+CO MUSI BYC:
+	minimum 4 poziomy, 4 bossy, 15 itemow,4 rodzaje przeciwnikow, 5 broni
+
+co mozna dodac:
+	wybor postaci,
+	wiecej itemow, bossow, broni, poziomowy, przeciwnikow.
+
+
+test
