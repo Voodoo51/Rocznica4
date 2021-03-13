@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour
 {
-    Color ogColor;
+    [HideInInspector]
+    public Color ogColor;
     public Color color;
     Rigidbody2D rb;
     Transform target;
-    SpriteRenderer _renderer;
+    [HideInInspector]
+    public SpriteRenderer _renderer;
 
     Enemy enemy;
 
+    public float maxHealth;
     public float health;
     public string tagName;
+
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -24,15 +29,16 @@ public class LivingEntity : MonoBehaviour
 
         if(gameObject.tag == "Player")
         {
-           
-            target = FindObjectOfType<PlayerMovement>().transform;
+            healthBar.SetMaxHealth(health);
+            target = FindObjectOfType<Player>().transform;
         }
-        else
+        else if(gameObject.tag == "enemy")
         {
-            target = FindObjectOfType<PlayerMovement>().transform;
+            target = FindObjectOfType<Player>().transform;
             enemy = GetComponent<Enemy>();
            
         }
+
     }
 
     void Update()
@@ -41,7 +47,10 @@ public class LivingEntity : MonoBehaviour
        _renderer.color = color;
 
        if(health < 0)
-        Destroy(gameObject);
+       {
+            Destroy(healthBar);
+            Destroy(gameObject);
+       }
       
     }
 
@@ -55,11 +64,15 @@ public class LivingEntity : MonoBehaviour
                 enemy.states = Enemy.States.fight;
                 enemy.enemyGun.enabled = true;
             }
+            else
+            {
+                healthBar.SetHealth(health);
+            }
            
         }
     }
 
-    public void TakeDamage(GameObject c2d)
+    public virtual void TakeDamage(GameObject c2d)
     {
         color = Color.red;
         health -= c2d.GetComponent<Bullet>().damage;

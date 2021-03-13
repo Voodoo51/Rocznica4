@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float damage;
 
+
     void Update()
     {
         transform.Translate(Vector3.up *  speed * Time.deltaTime);

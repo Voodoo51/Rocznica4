@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     {
         player = FindObjectOfType<Look>();
         weapons[0] = player.gun.gameObject;
-        playerG = FindObjectOfType<PlayerMovement>().gameObject;
+        playerG = FindObjectOfType<Player>().gameObject;
     }
 
     void Update()

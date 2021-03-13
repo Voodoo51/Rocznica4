@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6329036765049979736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783192579334271396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ec98669871b541a7c75e20b60a894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5485166288199371637, guid: ddfbb2f0f5c96cd4384489fc82b4fda1, type: 3}
+  barrel: {fileID: 5783192579422341741}
+  cooldownLength: 1
+  cooldown: 0
+  ID: 0
+  offset: 0
+  damage: 0
 --- !u!1 &6594189484419966003
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,8 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50d09cf4c2639a4b912a67c681cf081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemyGun: {fileID: 5783192579334271399}
+  enemyGun: {fileID: 6329036765049979736}
   sprite: {fileID: 6594189485465997666}
   lerpSpeed: 5
   speed: 0.5
@@ -125,7 +143,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6594189485465997692}
-  - component: {fileID: 6594189485465997667}
   - component: {fileID: 6594189485465997666}
   m_Layer: 0
   m_Name: Quad
@@ -143,25 +160,11 @@ Transform:
   m_GameObject: {fileID: 6594189485465997693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23109, y: 0.23109, z: 0.23109}
+  m_LocalScale: {x: 0.8339035, y: 0.8339035, z: 0.8339035}
   m_Children: []
   m_Father: {fileID: 6594189484419966007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6594189485465997667
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6594189485465997693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!212 &6594189485465997666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,8 +204,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4542468283057709607, guid: 19d1dd9784f316644b24418a8421d313,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31ce512f5be71a445bac208d6ace1f50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,23 +287,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8591237968307897525, guid: adea439524d9f454c83ed069ab264089, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: adea439524d9f454c83ed069ab264089, type: 3}
+--- !u!1 &5783192579334271396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8591237968307897526, guid: adea439524d9f454c83ed069ab264089,
+    type: 3}
+  m_PrefabInstance: {fileID: 2844078601693017362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5783192579334271397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8591237968307897527, guid: adea439524d9f454c83ed069ab264089,
     type: 3}
   m_PrefabInstance: {fileID: 2844078601693017362}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5783192579334271399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8591237968307897525, guid: adea439524d9f454c83ed069ab264089,
+--- !u!4 &5783192579422341741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8591237967657795455, guid: adea439524d9f454c83ed069ab264089,
     type: 3}
   m_PrefabInstance: {fileID: 2844078601693017362}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285333fad081a8f45bdeff3030e193ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

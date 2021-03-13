@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &476645876540020584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476645876540020590}
+  - component: {fileID: 476645876540020591}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &476645876540020590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476645876540020584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &476645876540020591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476645876540020584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc2083dd6a045c4898f9e72d0aff2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundTile: {fileID: 11400000, guid: 0f195e23fb31af14fa7471e802f47861, type: 2}
+  pitTile: {fileID: 11400000, guid: 262c9e9b57dc180479734aa5bf1e586d, type: 2}
+  topWallTile: {fileID: 11400000, guid: 13fa59fed5bce7549bc5d83e717395a9, type: 2}
+  botWallTile: {fileID: 11400000, guid: 703d875785e5e4b448a2db8ec40f93a5, type: 2}
+  groundMap: {fileID: 0}
+  pitMap: {fileID: 0}
+  wallMap: {fileID: 0}
+  player: {fileID: 0}
+  deviationRate: 83
+  roomRate: 20
+  maxRouteLength: 32
+  maxRoutes: 79
+  enemyCountToSpawn: 15
+  enemy: {fileID: 6594189484419966003, guid: e3a4a6671926ef1499805d64b5d2b224, type: 3}
+  chestCountToSpawn: 5
+  chest: {fileID: 2457600927805173647, guid: e4501dc3fbc3f5748a4c5c2b6d985957, type: 3}
+  gridLayout: {fileID: 0}

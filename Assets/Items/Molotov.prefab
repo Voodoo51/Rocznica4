@@ -96,5 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Eksperyment spo\u0142eczny"
   description: "Rzucamy w ludzi koktajlami mo\u0142otowa"
+  type: 0
+  chance: 50
+  num: 5
+  can: 1
   player: {fileID: 0}
   molotov: {fileID: 6457356112515883389, guid: b1658ac2da8dfcd4cb575cc14bcff3e8, type: 3}

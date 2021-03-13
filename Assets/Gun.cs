@@ -12,22 +12,22 @@ public class Gun : MonoBehaviour
     public float cooldown;
     
     [HideInInspector]
-    private float rotationOffset;
+    public float rotationOffset;
     public int ID;
     public float offset;
 
     public float damage;
-    
-
+    public static float damageMultiplier = 1;
+    public static float cooldownMultiplier = 1;
 
     
     void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            CheckCooldown();
+        
+        
+        CheckCooldown();
             
-        }
+        
         cooldown += Time.deltaTime;
     }
 
@@ -35,16 +35,19 @@ public class Gun : MonoBehaviour
     {
         rotationOffset = Random.Range(-offset,offset + 1);
         Bullet bulletI = Instantiate(bullet,barrel.position,barrel.rotation * Quaternion.Euler(Vector3.forward * rotationOffset));
-        bulletI.damage = damage;
+        bulletI.damage = damage * damageMultiplier;
        
     }
     
     public virtual void CheckCooldown()
     {
-            if(cooldown > cooldownLength)
+        if(Input.GetMouseButton(0))
+        {
+            if(cooldown > cooldownLength * cooldownMultiplier)
             {
                 cooldown = 0;
                 Shoot();
             }
+        }
     }
 }

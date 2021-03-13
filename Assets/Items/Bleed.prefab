@@ -94,5 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15b8f97c2c2d294e9888350e8249775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Kosa
+  description: zajebista
+  type: 0
+  chance: 30
+  num: 3
+  can: 0
   HowManyIterations: 5
   TimeBetweenIteration: 1

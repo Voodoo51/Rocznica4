@@ -96,4 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Jacex
   description: "g\xF3wno"
+  type: 0
+  chance: 50
+  num: 5
+  can: 1
   van: {fileID: 2660696585632043253, guid: 3ad5d6a09547e834db8f7352aef1a6b1, type: 3}

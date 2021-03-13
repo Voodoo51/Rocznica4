@@ -42,6 +42,11 @@ public class DungeonGenerator : MonoBehaviour
 
     [SerializeField]
     private GameObject enemy = null;
+    [SerializeField]
+    private int enemyShotGunCountToSpawn;
+
+    [SerializeField]
+    private GameObject enemyShotGun = null;
 
     [SerializeField]
     private int chestCountToSpawn = 0;
@@ -104,6 +109,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         BoundsInt bounds = groundMap.cellBounds;
         int enemyCount = 0;
+        int enemyShotGunCount = 0;
         int chestCount = 0;
         
         
@@ -137,6 +143,22 @@ public class DungeonGenerator : MonoBehaviour
                 {
                     Instantiate(chest,where,Quaternion.identity);
                     chestCount++;
+                }
+            }
+        }
+        while(enemyShotGunCount < enemyShotGunCountToSpawn)
+        {
+            Vector3Int pos = new Vector3Int(Random.Range(bounds.xMin,bounds.xMax), Random.Range(bounds.yMin,bounds.yMax), 0);
+            TileBase tile = groundMap.GetTile(pos);
+            Vector3 where = gridLayout.CellToWorld(pos);
+             
+
+            if(tile == groundTile)
+            {
+                if(Vector3.Distance(player.transform.position,where) > 2)
+                {
+                    Instantiate(enemyShotGun,where,Quaternion.identity);
+                    enemyShotGunCount++;
                 }
             }
         }

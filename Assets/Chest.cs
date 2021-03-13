@@ -26,7 +26,7 @@ public class Chest : MonoBehaviour
     public Notification notifications;
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        player = FindObjectOfType<Player>().gameObject;
         playerGun = FindObjectOfType<Look>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRendererSelf = transform.GetChild(1).GetComponent<SpriteRenderer>();
@@ -41,14 +41,12 @@ public class Chest : MonoBehaviour
         {
             whatWeapon = Random.Range(0,weapons.Length);
         }
+        StartCoroutine(CheckCol());
     }
 
     void Update()
     {   
-        print(randomItem);
-        Rect rect = new Rect(transform.position.x, transform.position.y, 1, 1);
-        rect.center = transform.position;
-        canOpen = rect.Contains(player.transform.position);
+        
      
 
         if(!isOpen)
@@ -82,15 +80,17 @@ public class Chest : MonoBehaviour
             { if(canOpen)
                 {
                     if(hasItem)
-                        {
-                            
-                            if(EffectManager.list.ContainsKey(items[randomItem].GetComponent<Effect>()))
+                        { 
+                            if(!EffectManager.list.ContainsKey(items[randomItem].GetComponent<Effect>()))
                             {
-                                EffectManager.list[items[randomItem].GetComponent<Effect>()] += 1;
+                                EffectManager.list.Add(items[randomItem].GetComponent<Effect>(),1);
+                          
                             }
                             else
                             {
-                                EffectManager.list.Add(items[randomItem].GetComponent<Effect>(),1);
+                                Effect temp_effect = items[randomItem].GetComponent<Effect>();
+                                EffectManager.list[items[randomItem].GetComponent<Effect>()] += 1;
+                                temp_effect.UpgradeEffectBasedOnCount(EffectManager.list[temp_effect]);                         
                             }
 
                             ItemPicked notificationI = Instantiate(notification,notification.transform.position,Quaternion.identity);
@@ -100,6 +100,7 @@ public class Chest : MonoBehaviour
                             notifications.StartCoroutine(notifications.Show(notificationI));
                             Destroy(spriteRenderer);
                             Destroy(gameObject.GetComponent<Chest>());
+                            
                             
                         }
                     else
@@ -125,6 +126,7 @@ public class Chest : MonoBehaviour
                 
             }
         }
+        
        
     }
 
@@ -167,5 +169,18 @@ public class Chest : MonoBehaviour
     void DrawRect(Rect rect)
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
+    }
+
+    IEnumerator CheckCol()
+    {
+        while(true)
+        {
+           // print(randomItem);
+            Rect rect = new Rect(transform.position.x, transform.position.y, 1, 1);
+            rect.center = transform.position;
+            canOpen = rect.Contains(player.transform.position);
+        
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
