@@ -99,7 +99,6 @@
     <Compile Include="Assets\Look.cs" />
     <Compile Include="Assets\Notification.cs" />
     <Compile Include="Assets\PS.cs" />
-    <Compile Include="Assets\ParticleEffects\ParticleSystem.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\PlayerEntity.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />

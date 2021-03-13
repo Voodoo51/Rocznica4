@@ -32,7 +32,6 @@ public class SpawnBoss : MonoBehaviour
     {
         while(true)
         {
-           // print(randomItem);
             Rect rect = new Rect(transform.position.x, transform.position.y, 1, 1);
             rect.center = transform.position;
             canUse = rect.Contains(player.transform.position);
